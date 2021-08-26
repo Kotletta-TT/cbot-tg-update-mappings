@@ -9,6 +9,7 @@ ICCID = 1
 
 
 # TODO Rename files needed?
+# TODO xlsx file to many lists!
 
 
 def clean(data: Any) -> str:
