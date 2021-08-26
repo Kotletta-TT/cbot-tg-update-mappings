@@ -1,3 +1,5 @@
 .idea/
 nums_mapping.py
 .DS_Store
+*.xls
+*.xlsx

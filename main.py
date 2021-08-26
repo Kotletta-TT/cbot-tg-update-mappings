@@ -2,6 +2,7 @@ import pandas as pd
 import sys
 from models import Mapping
 from typing import Any, List
+from db_helper import upd_db
 
 PHONE = 0
 ICCID = 1
@@ -13,6 +14,8 @@ ICCID = 1
 def clean(data: Any) -> str:
     if isinstance(data, int):
         return str(data).strip()
+    if isinstance(data, float):
+        return str(int(data)).strip()
     else:
         return data.strip()
 
@@ -34,8 +37,9 @@ def get_new_mappings(filename: str, provider: str) -> List[Mapping]:
 
 
 def main():
-    new_mappings = get_new_mappings(sys.argv[1], 'BEELINE')
+    new_mappings = get_new_mappings(sys.argv[1], 'ROSTELECOM')
+    upd_db(new_mappings)
 
-    
+
 if __name__ == '__main__':
     main()
